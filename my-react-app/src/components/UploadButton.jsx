@@ -1,11 +1,14 @@
-export default function UploadButton({ onUpload }) {
-  function handleChange(e) {
-    const file = e.target.files[0];
-
-    if (!file) return;
-
-    onUpload(file);
+// UploadButton.jsx (update if needed)
+export default function UploadButton({ onUpload, file, className, children }) {
+  const handleClick = () => {
+    if (file) {
+      onUpload(file)
+    }
   }
 
-  return <input type="file" accept="video/*" onChange={handleChange} />;
+  return (
+    <button onClick={handleClick} className={className}>
+      {children}
+    </button>
+  )
 }

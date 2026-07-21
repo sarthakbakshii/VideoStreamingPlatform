@@ -8,6 +8,7 @@ const {
 
 const router = express.Router();
 
+// Upload routes
 router.post("/initiate", initiateUpload);
 
 router.post("/presign", getPresignedUrl);

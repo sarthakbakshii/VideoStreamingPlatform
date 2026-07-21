@@ -19,7 +19,7 @@ async function initiate(body) {
     throw new Error("Max upload size exceeded");
   }
 
-  const key = `videos/${randomUUID()}/${filename}`;
+  const key = `raw/${filename}`;
 
   const command = new CreateMultipartUploadCommand({
     Bucket,
