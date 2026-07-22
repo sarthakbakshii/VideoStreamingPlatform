@@ -1,14 +1,13 @@
-// UploadButton.jsx (update if needed)
 export default function UploadButton({ onUpload, file, className, children }) {
-  const handleClick = () => {
-    if (file) {
-      onUpload(file)
+    const handleClick = () => {
+        if (file) {
+            onUpload(file)
+        }
     }
-  }
 
-  return (
-    <button onClick={handleClick} className={className}>
-      {children}
-    </button>
-  )
+    return (
+        <button onClick={handleClick} className={className}>
+            {children}
+        </button>
+    )
 }
