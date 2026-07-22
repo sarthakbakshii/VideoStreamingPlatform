@@ -34,10 +34,18 @@ export default defineConfig(({ mode }) => {
       // Optimize for production
       rollupOptions: {
         output: {
-          manualChunks: {
-            vendor: ['react', 'react-dom'],
-            aws: ['@aws-sdk/client-s3'],
-            video: ['hls.js']
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              if (id.includes('react') || id.includes('react-dom')) {
+                return 'vendor';
+              }
+              if (id.includes('@aws-sdk')) {
+                return 'aws';
+              }
+              if (id.includes('hls.js')) {
+                return 'video';
+              }
+            }
           }
         }
       }
